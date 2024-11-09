@@ -535,7 +535,7 @@ async def update_car_position(position_update: CarPositionUpdate):
 @app.post("/get_route")
 async def get_route(route_request: RouteRequest):
     # Замените на ваш действительный API-ключ
-    api_key = "YOUR_OPENROUTESERVICE_API_KEY"  # Вставьте ваш API-ключ здесь
+    api_key = "5b3ce3597851110001cf62483afb0f0d537a438289e0a9064d8d8ee5"  # Вставьте ваш API-ключ здесь
 
     start_coords = f"{route_request.start_lng},{route_request.start_lat}"
     end_coords = f"{route_request.end_lng},{route_request.end_lat}"
