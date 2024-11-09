@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TaxiGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Подключение стилей Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Ваши стили -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="autoshop.css">
+</head>
+<body>
+
+    <!-- Основной контейнер для контента под шапкой -->
+    <div class="outer-container">
+        <!-- Контейнер для шапки -->
+        <div id="header-container"></div>
+
+        <div class="main-info">
+            <h2>Навигация</h2>
+            <div class="info">
+                <!-- Поле выбора автомобиля внутри блока с картой -->
+                <div class="car-selection">
+                    <select id="carSelect">
+                        <!-- Опции будут добавлены динамически -->
+                    </select>
+                </div>
+
+                <div id="mapContainer">
+                    <!-- Динамически создаваемые карты будут добавляться здесь -->
+                </div>
+            </div>
+
+            <!-- Блок информации под картой -->
+            <div id="infoContainer" class="info-container" style="display: none;">
+                <p>Прибыль: <span id="profitAmount">0.00</span> USDT</p>
+                <p>Количество заказов: <span id="orderCount">0</span></p>
+                <button onclick="withdrawProfit()">Вывести прибыль на баланс</button>
+            </div>
+
+            <h2>Диспетчерская</h2>
+            <!-- Блок для логов -->
+            <div id="logContainer" class="log-container">
+                <!-- Логи будут отображаться здесь -->
+            </div>
+
+        </div>
+
+        <!-- Подключаем футер -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Модальное окно для пополнения счета -->
+    <div id="topUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTopUpModal()">&times;</span>
+            <h2>Пополнение счета</h2>
+            <p>Введите сумму пополнения:</p>
+            <input type="number" id="topUpAmount" placeholder="Сумма в USDT">
+            <button onclick="confirmTopUp()">Пополнить</button>
+        </div>
+    </div>
+
+    <!-- Подключение скриптов -->
+
+    <!-- Скрипт для загрузки шапки и футера -->
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    if (typeof updateBalance === "function") {
+                        updateBalance(); // Вызов после загрузки шапки
+                    }
+                })
+                .catch(error => console.error('Ошибка загрузки шапки:', error));
+        }
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader();
+            loadFooter();
+        });
+    </script>
+
+    <!-- Подключение основного скрипта -->
+    <script src="script.js" defer></script>
+    <script src="purchase.js" defer></script>
+    <script src="balance.js" defer></script>
+    <script src="topup.js" defer></script>
+
+    <!-- Подключение библиотеки Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" defer></script>
+</body>
+</html>

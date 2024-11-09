@@ -1,0 +1,413 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.balance-icon, .plus-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.badge {
+    background-color: #f0c040;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 12px;
+}
+
+.main-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info {
+    background-color: #f0c040;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#mapContainer {
+    position: relative;
+    height: 200px; /* Задаем фиксированную высоту для контейнера карт */
+}
+
+.map {
+    height: 100%;
+    width: 100%; /* Карта будет занимать всю ширину контейнера */
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.car-selection {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.car-selection label {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.car-selection select {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.stats {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.footer-item {
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer img {
+    width: 25px;
+}
+
+.leaflet-routing-container {
+    display: none !important;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.car-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.car-selection label {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.car-selection select {
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#mapContainer {
+    position: relative;
+    height: 200px;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.logo {
+    width: 100px;
+}
+
+.car-list {
+    margin-top: 20px;
+}
+
+.car-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    width: 60px;
+    height: auto;
+}
+
+.car-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.buy-button {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.stars {
+    color: #ffa500;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.confirm-button, .cancel-button {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.cancel-button {
+    background-color: #bbb;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-status {
+    font-size: 12px;
+    color: #555;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.currency-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item.active p {
+    color: #ffa500;
+}
+
+.nav-item.active img {
+    filter: hue-rotate(30deg);
+}
+
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    z-index: 10;
+}
+
+.container {
+    padding-bottom: 80px; /* Оставляем место для навигационного меню */
+}
+

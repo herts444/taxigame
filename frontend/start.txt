@@ -1,0 +1,6 @@
+#Запуск Python HTTP Server
+python -m http.server 8080
+
+#Запуск FastAPI сервера с помощью Uvicorn
+uvicorn main:app --reload
+

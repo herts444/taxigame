@@ -1,0 +1,280 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f7f7f7;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.top-ranking {
+    display: flex;
+    justify-content: space-around;
+    background-color: #FFF3CD;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.fixed-bottom {
+    position: sticky;
+    bottom: 0;
+    background-color: #f0c040;
+    color: #fff;
+}
+
+/* Стиль для разделителя */
+.rank-spacer {
+    text-align: center;
+    padding: 10px 0;
+    color: #777;
+}
+
+.rating-textblock {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.rank-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px; /* Фиксированная ширина для всех элементов */
+    color: #333;
+    position: relative; /* Для абсолютного позиционирования кружка */
+}
+
+.rank-number1 {
+    position: absolute;
+    top: -15px; /* Позиция сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    background-color: #FFD700; /* Цвет фона кружка */
+    color: #fff; /* Цвет текста */
+    border-radius: 50%; /* Скругляем, чтобы был кружок */
+    width: 30px; /* Размер кружка */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Размер текста внутри кружка */
+    font-weight: bold;
+}
+
+.rank-number2 {
+    position: absolute;
+    top: -15px; /* Позиция сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    background-color: #C0C0C0; /* Цвет фона кружка */
+    color: #fff; /* Цвет текста */
+    border-radius: 50%; /* Скругляем, чтобы был кружок */
+    width: 30px; /* Размер кружка */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Размер текста внутри кружка */
+    font-weight: bold;
+}
+
+.rank-number3 {
+    position: absolute;
+    top: -15px; /* Позиция сверху */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    background-color: #CD7F32; /* Цвет фона кружка */
+    color: #fff; /* Цвет текста */
+    border-radius: 50%; /* Скругляем, чтобы был кружок */
+    width: 30px; /* Размер кружка */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Размер текста внутри кружка */
+    font-weight: bold;
+}
+
+
+.rank-item p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* Ширина текста занимает весь блок */
+}
+
+.rank-item span {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.rank-item img.user-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.rank-first {
+    position: relative;
+}
+
+.rank-first::after {
+    content: "1";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #FFA500;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.other-ranking-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.other-ranking {
+    width: 95%;
+    background-color: #FFF3CD;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 150px;
+    overflow-y: scroll;
+    max-height: 400px; /* Ограничиваем видимую часть для 8 мест */
+}
+
+.rank-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.rank-row:last-child {
+    border-bottom: none;
+}
+
+.rank-row img.row-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.highlighted {
+    background-color: #f0c040;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer-navigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+.prize-container {
+    background-color: #FFF3CD; /* Светлый фон */
+    color: #333;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    width: 100%; /* Делаем ширину, как у красного блока */
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.prize-container h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.prizes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.prize {
+    display: flex;
+    align-items: center;
+    background-color: #FFD700; /* Золото для первого места */
+    color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100px;
+    flex-direction: column;
+}
+
+.prize.first-place {
+    background-color: #FFD700; /* Золото */
+}
+
+.prize.second-place {
+    background-color: #C0C0C0; /* Серебро */
+}
+
+.prize.third-place {
+    background-color: #CD7F32; /* Бронза */ 
+}
+
+.prize-icon {
+    height: 100%;
+    width: auto;
+}
+
+.prize-details {
+    text-align: center;
+}
+
+.prize-place {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.prize-amount {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.countdown {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #d9534f; /* Красный цвет для акцента */
+    display: block; /* Убедимся, что это блоковый элемент */
+    text-align: center;
+    padding-top: 5px; /* Добавим немного отступа сверху */
+}
+
+

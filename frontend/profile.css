@@ -1,0 +1,350 @@
+/* profile.css */
+
+/* Сброс стилей и базовые настройки */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Контейнер профиля */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px 70px; /* Отступы сверху и снизу для шапки и футера */
+    box-sizing: border-box;
+}
+
+/* Общие стили секций */
+.section {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.stats-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Устанавливаем nowrap для размещения элементов в одну строку */
+    gap: 20px; /* Добавляем промежуток между блоками */
+}
+
+.stat-item {
+    flex: 1; /* Каждая карточка занимает равную ширину */
+    text-align: left; /* Выравниваем текст слева */
+    padding: 10px; /* Добавляем немного отступов для визуального разделения */
+    min-width: 100px; /* Устанавливаем минимальную ширину для элементов */
+}
+
+
+.stat-item label {
+    font-weight: bold;
+    color: #555;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Секция "Мои автомобили" */
+.my-cars h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.my-cars {
+    /* Ограничение высоты и вертикальное расположение элементов */
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-cars .cars-list {
+    /* Ограничение высоты списка автомобилей и добавление прокрутки */
+    max-height: 300px; /* 300px минус высота заголовка и кнопки */
+    overflow-y: auto;
+    padding-right: 10px; /* Отступ для удобства прокрутки */
+    scrollbar-width: none; /* Скрывает полосу прокрутки в Firefox */
+    -ms-overflow-style: none; /* Скрывает полосу прокрутки в IE и старых Edge */
+}
+
+.cars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.car-item {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.car-image {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.car-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-details h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.car-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Стили кнопки "Добавить автомобиль" */
+.add-car-button {
+    margin-top: 20px;
+    background-color: #43a39a;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.info-button {
+    background-color: #f0c040;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 10px;
+}
+
+.add-car-button:hover {
+    background-color: #369078;
+}
+
+/* Секция "Последние операции" */
+.recent-activity h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    scrollbar-width: none; /* Скрывает полосу прокрутки в Firefox */
+    -ms-overflow-style: none; /* Скрывает полосу прокрутки в IE и старых Edge */
+}
+
+.activity-list::-webkit-scrollbar {
+    display: none;
+}
+
+.activity-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #b3a706;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-list li:last-child {
+    border-bottom: none;
+}  
+
+.log-timestamp {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.log-message {
+    text-align: left;
+    color: #555;
+}
+
+/* Секция "Пригласить друга" */
+.referral h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.referral-link {
+    display: flex;
+    margin-top: 10px;
+}
+
+.referral-link input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+}
+
+.copy-button {
+    padding: 10px;
+    background-color: #00936a;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Секция "Вывод средств" */
+.cashout h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.cashout-form {
+    margin-top: 20px;
+}
+
+.cashout-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.cashout-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.withdraw-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.withdraw-button:hover {
+    background-color: #c9302c;
+}
+
+/* Нижнее навигационное меню */
+.bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item.active p {
+    color: #ffa500;
+}
+
+.nav-item.active img {
+    filter: hue-rotate(30deg);
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 600px) {
+    .profile-container {
+        padding: 70px 10px 70px;
+    }
+
+    .stats-block {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap; /* Устанавливаем nowrap для размещения элементов в одну строку */
+        gap: 20px; /* Добавляем промежуток между блоками */
+    }
+    
+    .stat-item {
+        flex: 1; /* Каждая карточка занимает равную ширину */
+        text-align: left; /* Выравниваем текст слева */
+        padding: 10px; /* Добавляем немного отступов для визуального разделения */
+        min-width: 100px; /* Устанавливаем минимальную ширину для элементов */
+    }
+
+    .edit-profile-button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Стили для модальных окон */
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Пример: Иконки для типов логов */
+.log-deposit .log-timestamp {
+    color: #28a745; /* Зеленый для пополнения */
+}
+
+.log-withdraw .log-timestamp {
+    color: #dc3545; /* Красный для вывода */
+}
+
+.log-purchase .log-timestamp {
+    color: #007bff; /* Синий для покупки */
+}
+
+.log-sell .log-timestamp {
+    color: #ffc107; /* Желтый для продажи */
+}
+

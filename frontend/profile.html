@@ -1,0 +1,219 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль - TaxiGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="icon" href="http://127.0.0.1:8000/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка -->
+    <div id="header-container"></div>
+
+    <!-- Основное содержимое профиля -->
+    <div class="profile-container">
+        <!-- Секция информации о пользователе -->
+<!-- Секция информации о пользователе -->
+        <div class="section profile-statistic">
+            <div class="stats-block">
+                <div class="stat-item">
+                    <label>Заработано:</label>
+                    <span class="earnings">0.00 USDT</span>
+                </div>
+                <div class="stat-item">
+                    <label>Автомобилей:</label>
+                    <span class="cars-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <label>Поездок:</label>
+                    <span class="trips-count">0</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Секция "Мои автомобили" -->
+        <div class="section my-cars">
+            <h3>Мои автомобили</h3>
+            <div class="cars-list">
+                <!-- Список автомобилей будет загружен динамически -->
+            </div>
+            <button class="add-car-button" onclick="redirectToAutoshop()">Добавить автомобиль</button>
+        </div>
+
+        <!-- Секция "Последние операции" -->
+        <div class="section recent-activity">
+            <h3>Последние операции</h3>
+            <ul class="activity-list">
+            </ul>
+        </div>
+
+        <!-- Секция "Пригласить друга" -->
+        <div class="section referral">
+            <h3>Пригласить друга</h3>
+            <p>Поделитесь своей реферальной ссылкой и получайте бонусы!</p>
+            <div class="referral-link">
+                <input type="text" id="referralLink" readonly value="t.me/taxigame&invite123456789">
+                <button onclick="copyReferralLink()" class="copy-button">Копировать</button>
+            </div>
+        </div>
+
+        <!-- Секция "Вывод средств" -->
+        <div class="section cashout">
+            <h3>Вывод средств</h3>
+            <div class="cashout-form">
+                <label for="walletAddress">Адрес USDT (TRC-20):</label>
+                <input type="text" id="walletAddress" placeholder="Введите адрес кошелька">
+                <label for="withdrawAmount">Сумма вывода:</label>
+                <input type="number" id="withdrawAmount" placeholder="Минимум 10 USDT">
+                <button class="withdraw-button" onclick="submitWithdrawal()">Вывести средства</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <div id="footer-container"></div>
+
+    <!-- Модальные окна -->
+    <!-- Модальное окно для подтверждения копирования реферальной ссылки -->
+    <div id="copyModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCopyModal()">&times;</span>
+            <p>Ссылка скопирована в буфер обмена!</p>
+        </div>
+    </div>
+
+    <!-- Модальное окно для подтверждения продажи автомобиля -->
+    <div id="sellModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeSellModal()">&times;</span>
+            <h2>Подтверждение продажи</h2>
+            <p id="sellText">Вы хотите продать автомобиль?</p>
+            <button class="confirm-button" onclick="confirmSell()">Продать</button>
+            <button class="cancel-button" onclick="closeSellModal()">Отмена</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для информации об автомобиле -->
+    <div id="carInfoModal" class="modal" style="display: none;">
+        <div class="modal-content" id="carInfoContent">
+            <!-- Информация об автомобиле будет добавлена сюда динамически -->
+        </div>
+    </div>
+
+    <!-- Подключение скриптов -->
+    <script src="profile.js" defer></script>
+    <script src="balance.js" defer></script>
+    <script src="purchase.js" defer></script>
+    <script src="topup.js" defer></script>
+    <script>
+        // Функции для загрузки шапки и футера
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    if (typeof updateBalance === 'function') {
+                        updateBalance();
+                    }
+                })
+                .catch(error => console.error('Ошибка загрузки шапки:', error));
+        }
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        }
+
+        // Функция для перенаправления на страницу автосалона
+        function redirectToAutoshop() {
+            window.location.href = 'autoshop.html';
+        }
+
+        // Функция для копирования реферальной ссылки
+        function copyReferralLink() {
+            const referralLink = document.getElementById('referralLink');
+            referralLink.select();
+            referralLink.setSelectionRange(0, 99999); // Для мобильных устройств
+
+            navigator.clipboard.writeText(referralLink.value)
+                .then(() => {
+                    // Показать модальное окно уведомления
+                    document.getElementById('copyModal').style.display = 'block';
+                })
+                .catch(err => {
+                    console.error('Не удалось скопировать текст: ', err);
+                });
+        }
+
+        function closeCopyModal() {
+            document.getElementById('copyModal').style.display = 'none';
+        }
+
+        // Функция для отправки запроса на вывод средств
+        function submitWithdrawal() {
+            const walletAddress = document.getElementById('walletAddress').value.trim();
+            const withdrawAmount = parseFloat(document.getElementById('withdrawAmount').value);
+
+            if (!walletAddress) {
+                alert('Пожалуйста, введите адрес кошелька.');
+                return;
+            }
+
+            if (isNaN(withdrawAmount) || withdrawAmount < 10) {
+                alert('Минимальная сумма вывода - 10 USDT.');
+                return;
+            }
+
+            fetch('http://127.0.0.1:8000/withdraw_profit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    telegram_id: currentUserTelegramId,
+                    amount: withdrawAmount
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(data.detail || 'Произошла ошибка при выводе средств.');
+                    });
+                }
+                return response.json();
+            })
+            .then(result => {
+                alert(`Вы успешно вывели ${withdrawAmount} USDT на адрес ${walletAddress}.`);
+                // Очистить поля формы
+                document.getElementById('walletAddress').value = '';
+                document.getElementById('withdrawAmount').value = '';
+                // Обновить баланс
+                if (typeof updateBalance === 'function') {
+                    updateBalance();
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при выводе средств:', error);
+                alert(error.message);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader();
+            loadFooter();
+            loadUserCars(); // Загрузка автомобилей пользователя
+        });
+    </script>
+</body>
+</html>

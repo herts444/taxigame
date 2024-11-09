@@ -1,0 +1,161 @@
+/* autoshop.css*/
+
+/* Основные стили для структуры страницы */
+body, html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Контейнер со списком автомобилей */
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin-bottom: 55px;
+}
+
+.outer-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px; /* Отступ сверху для корректного отображения шапки */
+    box-sizing: border-box;
+}
+
+.container h2 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+/* Футер */
+#footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 10;
+}
+
+/* Навигация в футере */
+.bottom-navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Стили для списка автомобилей */
+.car-list {
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+.car-item {
+    display: flex;
+    align-items: center; /* Центрирует изображение по вертикали */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+    width: 60px;
+    height: auto;
+    border-radius: 30px;
+}
+
+.car-details {
+    flex-grow: 1;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.buy-button {
+    background-color: #00936a;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.1s; /* Добавляет плавный переход */
+}
+
+.buy-button:hover {
+    background-color: #18d322; /* Цвет кнопки при наведении */
+}
+
+.buy-button:active {
+    background-color: #cc8400; /* Цвет кнопки при нажатии */
+    transform: scale(0.98); /* Эффект уменьшения при нажатии */
+}
+
+
+.stars {
+    color: #ffa500;
+}
+
+.car-advantages-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Отступы между значками */
+    margin-bottom: 10px; /* Отступ снизу для кнопки */
+}
+
+.car-advantages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Уменьшенные отступы между значками */
+}
+
+.badge {
+    flex: 0 1 auto; /* Ширина зависит от содержимого */
+    padding: 4px 8px; /* Уменьшенные внутренние отступы */
+    font-size: 10px; /* Уменьшенный размер шрифта */
+    border-radius: 10px; /* Радиус скругления */
+    height: 19px;
+}
+
+.usdt-badge {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle; /* Выравнивает изображение по центру текста */
+    margin-right: 5px; /* Добавляет отступ справа от изображения */
+}
+
+.usdt-buyButton {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle; /* Выравнивает изображение по центру текста */
+    margin-top: -3px;
+}

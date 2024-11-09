@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг - TaxiGame</title>
+    <link rel="stylesheet" href="rating.css">
+    <link rel="stylesheet" href="autoshop.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="balance.js" defer></script>
+    <script src="topup.js" defer></script>
+</head>
+<body>
+
+    <!-- Контейнер для шапки -->
+    <div id="header-container"></div>
+
+    <div class="rating-textblock">
+        <h2>Рейтинг</h2>
+    </div>
+
+    <div class="rating-container">
+
+
+        <div class="prize-container">
+            <h3>Призы для Топ Игроков</h3>
+            <div class="prizes">
+                <div class="prize first-place">
+                    <img src="img/usdt.png" alt="USDT" class="prize-icon">
+                    <div class="prize-details">
+                        <div class="prize-place">1 место</div>
+                        <div class="prize-amount">5000 USDT</div>
+                    </div>
+                </div>
+                <div class="prize second-place">
+                    <img src="img/usdt.png" alt="USDT" class="prize-icon">
+                    <div class="prize-details">
+                        <div class="prize-place">2 место</div>
+                        <div class="prize-amount">3000 USDT</div>
+                    </div>
+                </div>
+                <div class="prize third-place">
+                    <img src="img/usdt.png" alt="USDT" class="prize-icon">
+                    <div class="prize-details">
+                        <div class="prize-place">3 место</div>
+                        <div class="prize-amount">1000 USDT</div>
+                    </div>
+                </div>
+            </div>
+            <div id="timer" class="countdown">До завершения конкурса: 23:59:57</div>
+        </div>
+
+        <div class="top-ranking">
+            <div class="rank-item">
+                <div class="rank-number2">2</div>
+                <img src="img/winner.png" alt="Meghan Jessica" class="user-image">
+                <p>Meghan Jessica</p>
+                <span>40 pts</span>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number1">1</div>
+                <img src="img/winner.png" alt="Bryan Wolf" class="user-image">
+                <p>Bryan Wolf</p>
+                <span>43 pts</span>
+            </div>
+            <div class="rank-item">
+                <div class="rank-number3">3</div>
+                <img src="img/winner.png" alt="Alex Turner" class="user-image">
+                <p>Alex Turner</p>
+                <span>38 pts</span>
+            </div>
+            
+        </div>
+
+        <div class="other-ranking-container">
+            <div class="other-ranking">
+                <div class="rank-row">4.  Marsha Fisher <span>36 pts</span></div>
+                <div class="rank-row">5.  Juanita Cormier <span>35 pts</span></div>
+                <div class="rank-row highlighted">6.  You <span>34 pts</span></div>
+                <div class="rank-row">7. Tamara Schmidt <span>33 pts</span></div>
+                <div class="rank-row">8.  Ricardo Veum <span>32 pts</span></div>
+                <div class="rank-row">9.  Gary Sanford <span>31 pts</span></div>
+                <div class="rank-row">11.  Becky Bartell <span>30 pts</span></div>
+                <div class="rank-row">12.  Becky Bartell <span>30 pts</span></div>
+                <div class="rank-row">13.  Becky Bartell <span>30 pts</span></div>
+                <div class="rank-row">14.  Becky Bartell <span>30 pts</span></div>
+                <div class="rank-row">15.  Becky Bartell <span>30 pts</span></div>
+                <div class="rank-row">16.  Becky Bartell <span>30 pts</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Контейнер для футера -->
+    <div id="footer-container"></div>
+
+    <!-- Скрипт для загрузки шапки и футера -->
+    <script>
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    if (typeof updateBalance === "function") {
+                        updateBalance(); // Вызов после загрузки шапки
+                    }
+                })
+                .catch(error => console.error('Ошибка загрузки шапки:', error));
+        }
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader();
+            loadFooter();
+        });
+    </script>
+
+    <!-- Подключение дополнительных скриптов -->
+    <script src="countdown.js"></script>
+    <script src="rating.js"></script>
+</body>
+</html>

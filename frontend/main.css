@@ -1,0 +1,227 @@
+/* main.css */
+
+/* Основные стили для структуры страницы */
+body, html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.outer-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 80px; /* Оставляем место для фиксированной шапки */
+    padding-bottom: 80px; /* Отступ снизу для футера */
+    box-sizing: border-box;
+}
+
+/* Основная информация */
+.main-info {
+    text-align: center;
+    width: 90%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    background-color: #c2c200;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Поле выбора автомобиля */
+.car-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.car-selection label {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.car-selection select {
+    padding: 8px;
+    padding-right: 30px; /* Дополнительный отступ справа для текста */
+    border: 2px solid #ffa500;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    appearance: none; /* Убирает стандартный стиль браузера */
+    background-image: url('img/dropdown-icon.png'); /* Путь к изображению иконки стрелки */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+
+
+/* Карта */
+#mapContainer {
+    width: 100%;
+    max-width: 600px;
+}
+
+.map {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+/* Отключение возможности масштабирования и перемещения карты */
+.leaflet-container {
+    touch-action: none;
+    pointer-events: none;
+}
+
+/* Блок логов */
+#logContainer {
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    background-color: #b4b9c2;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 3px dashed #c9ab00;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: left; /* Добавлено: выравнивание текста по левому краю */
+}
+
+.log-message {
+    margin-bottom: 5px;
+    text-align: left; /* Убедимся, что текст выровнен по левому краю */
+}
+
+/* Скрытие элементов */
+.hidden {
+    display: none;
+}
+
+/* Блок информации */
+.info-container {
+    margin-top: 10px;
+}
+
+.info-container p {
+    margin: 5px 0;
+}
+
+.info-container button {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Футер */
+#footer-container {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.footer-item {
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+}
+
+.footer-item img {
+    width: 25px;
+}
+
+.footer-item p {
+    margin: 5px 0 0;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Кнопки в модальном окне */
+.confirm-button, .cancel-button {
+    background-color: #ffa500;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.cancel-button {
+    background-color: #bbb;
+}
+
+/* Дополнительные стили */
+#orderMessages {
+    width: 100%;
+    height: 200px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#messagesList p {
+    margin: 5px 0;
+}

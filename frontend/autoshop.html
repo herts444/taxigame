@@ -1,0 +1,87 @@
+<!-- autoshop.html -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автосалон - TaxiGame</title>
+    <link rel="stylesheet" href="autoshop.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Шапка -->
+    <div id="header-container"></div>
+
+    <div class="outer-container">
+        <div class="container">
+            <h2>Автосалон</h2>
+            <div class="car-list">
+                <!-- Список автомобилей будет загружен и сгенерирован динамически из API -->
+            </div>
+        </div>
+
+        <!-- Модальное окно для подтверждения покупки -->
+        <div id="buyModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeBuyModal()">&times;</span>
+                <h2>Подтверждение покупки</h2>
+                <p id="buyText">Вы хотите купить автомобиль?</p>
+                <button class="confirm-button" onclick="confirmPurchase()">Подтвердить</button>
+                <button class="cancel-button" onclick="closeBuyModal()">Отмена</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно для пополнения счета -->
+        <div id="topUpModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeTopUpModal()">&times;</span>
+                <h2>Пополнение счета</h2>
+                <p>Введите сумму пополнения:</p>
+                <input type="number" id="topUpAmount" placeholder="Сумма в USDT">
+                <button onclick="confirmTopUp()">Пополнить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <div id="footer-container"></div>
+
+    <!-- Подключение скриптов -->
+    <script src="autoshop.js" defer></script>
+    <script src="balance.js" defer></script>
+    <script src="purchase.js" defer></script>
+    <script src="topup.js" defer></script>
+    <script>
+        // Функции для загрузки шапки и футера
+        function loadHeader() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-container').innerHTML = data;
+                    if (typeof updateBalance === 'function') {
+                        updateBalance();
+                    }
+                })
+                .catch(error => console.error('Ошибка загрузки шапки:', error));
+        }
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
+                })
+                .catch(error => console.error('Ошибка загрузки футера:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHeader();
+            loadFooter();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Skoda Octavia 2007",
+        "image": "img/skoda_octavia.png",
+        "price": 10,
+        "daily_income": 3,
+        "class": "Эконом",
+        "payback_period": 25,
+        "profit_per_trip": {"min": 5, "max": 10},
+        "delay_before_new_route": {"min": 30000, "max": 60000},
+        "delay_before_start_moving": {"min": 5000, "max": 10000}
+    },
+    {
+        "id": 2,
+        "name": "Volkswagen Passat",
+        "image": "img/volkswagen_passat.png",
+        "price": 25,
+        "daily_income": 5,
+        "class": "Комфорт",
+        "payback_period": 23,
+        "profit_per_trip": {"min": 8, "max": 12},
+        "delay_before_new_route": {"min": 25000, "max": 50000},
+        "delay_before_start_moving": {"min": 4000, "max": 8000}
+    },
+    {
+        "id": 3,
+        "name": "Toyota Camry",
+        "image": "img/toyota_camry.png",
+        "price": 50,
+        "daily_income": 8,
+        "class": "Элитный",
+        "payback_period": 21,
+        "profit_per_trip": {"min": 12, "max": 15},
+        "delay_before_new_route": {"min": 20000, "max": 40000},
+        "delay_before_start_moving": {"min": 3000, "max": 7000}
+    },
+    {
+        "id": 4,
+        "name": "Lexus ES",
+        "image": "img/lexus_es.png",
+        "price": 80,
+        "daily_income": 15,
+        "class": "Бизнес",
+        "payback_period": 19,
+        "profit_per_trip": {"min": 15, "max": 20},
+        "delay_before_new_route": {"min": 15000, "max": 30000},
+        "delay_before_start_moving": {"min": 2000, "max": 5000}
+    },
+    {
+        "id": 5,
+        "name": "Mercedes Maybach",
+        "image": "img/mercedes-maybach.png",
+        "price": 110,
+        "daily_income": 20,
+        "class": "Премиум",
+        "payback_period": 17,
+        "profit_per_trip": {"min": 20, "max": 25},
+        "delay_before_new_route": {"min": 10000, "max": 20000},
+        "delay_before_start_moving": {"min": 1000, "max": 3000}
+    }
+]
